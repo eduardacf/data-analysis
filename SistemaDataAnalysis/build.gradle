@@ -1,0 +1,20 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    jcenter()
+}
+
+ext{
+    springversion = '2.1.6.RELEASE'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.springframework.boot', name: 'spring-boot', version: 'springversion'
+    compile group: 'org.springframework', name: 'spring-beans', version: '5.1.8.RELEASE'
+}
