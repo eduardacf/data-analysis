@@ -1,12 +1,9 @@
-package com.dudacf26.core.temaFinal.domain;
+package com.dudacf26.core.DataAnalysis.domain;
 
 public class Item {
 	private int id;
 	private int quantidade;
 	private double preco;
-
-	public Item() {
-	}
 
 	public Item(int id, int quantidade, double preco) {
 		super();
@@ -39,6 +36,9 @@ public class Item {
 		this.preco = preco;
 	}
 
+	public Double valorTotalQuantidade() {
+		return this.preco * this.quantidade;
+	}
 	@Override
 	public String toString() {
 		return "Item:\nID:" + id + "\nQuantidade:" + quantidade + "\nPreço:" + preco + "";

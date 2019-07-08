@@ -4,17 +4,23 @@ plugins {
 }
 
 apply plugin: 'io.spring.dependency-management'
+group 'com.dudacf26.core'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
-ext{
-    springversion = '2.1.6.RELEASE'
+ext {
+    springBootVersion = '2.0.5.RELEASE'
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'org.springframework.boot', name: 'spring-boot', version: 'springversion'
-    compile group: 'org.springframework', name: 'spring-beans', version: '5.1.8.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot', version: '2.1.3.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 }

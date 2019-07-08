@@ -1,12 +1,11 @@
-package com.dudacf26.core.temaFinal.domain;
+package com.dudacf26.core.DataAnalysis.domain;
 
-public class Cliente extends DadosArquivo {
+public class Cliente {
+
+	public static final String TYPE = "001";
 	private String cpnj;
 	private String nome;
 	private String areaNegocio;
-
-	public Cliente() {
-	}
 
 	public Cliente(String cpnj, String nome, String areaNegocio) {
 		super();
