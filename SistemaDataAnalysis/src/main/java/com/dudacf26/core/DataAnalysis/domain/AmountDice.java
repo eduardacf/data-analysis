@@ -4,13 +4,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-@Builder
+import java.util.List;
+
 @Getter
 @Setter
-public class Item {
+@Builder
+public class AmountDice {
 
-    private String id;
-    private int amount;
-    private double price;
-
+    List<Seller> sellers;
+    List<Client> clients;
+    List<Sale> sales;
 }

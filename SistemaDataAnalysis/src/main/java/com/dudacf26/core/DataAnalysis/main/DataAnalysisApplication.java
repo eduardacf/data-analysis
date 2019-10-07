@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @ComponentScan({"com.dudacf26.core.DataAnalysis"})
 @EnableScheduling
 @SpringBootApplication
-public class Application {
+public class DataAnalysisApplication {
 	public static void main(String[] args) {
 		System.out.println("Analise de Dados Iniciada!");
-	    SpringApplication.run(Application.class, args);
+	    SpringApplication.run(DataAnalysisApplication.class, args);
 	}
 }
 

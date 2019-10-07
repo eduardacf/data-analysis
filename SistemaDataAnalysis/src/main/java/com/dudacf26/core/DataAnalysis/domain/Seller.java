@@ -7,10 +7,12 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class Item {
 
-    private String id;
-    private int amount;
-    private double price;
+public class Seller {
 
+    private String cpf;
+    private String name;
+    private Double salary;
+
+    public static final String TYPE = "001";
 }
