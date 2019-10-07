@@ -44,5 +44,8 @@ emitir um relatório.
 > - ID da venda mais cara
 > - Pior vendedor de cada vez
 
+### Atenção:
+> Este projeto requer a instalação do plugin lombok no seu IDE. Para mais detalhes, consulte a documentação aqui: https://projectlombok.org/ .
+
 ***Desenvolvido por Eduarda correia ferreira***
 
