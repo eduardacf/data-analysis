@@ -10,12 +10,15 @@ import java.io.InputStream;
 @Component
 public class Route extends RouteBuilder {
 
+
+    public static final String EXTENSAO_ARQUIVO = "dat";
+
     @Override
     public void configure() {
 
         from("{{inputDir}}")
                 .filter()
-                .simple("${file:ext} == 'dat'")
+                .simple("${file:ext} == '" + EXTENSAO_ARQUIVO + "'")
                 .convertBodyTo(InputStream.class)
                 .process(new FileProcessor())
                 .process(new ReportProcessor())
