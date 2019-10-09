@@ -54,9 +54,9 @@ public class FileProcessor implements Processor {
 
             while ((line = reading.readLine()) != null) {
 
-                String SEPARADOR = String.valueOf(line.charAt(3));
+                String SEPARATOR = String.valueOf(line.charAt(3));
 
-                List<String> code = Arrays.asList(line.split(SEPARADOR));
+                List<String> code = Arrays.asList(line.split(SEPARATOR));
                 checkCodeType(line, sellers, clients, sales, code);
             }
 
