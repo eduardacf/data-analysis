@@ -1,0 +1,14 @@
+/gradle/wrapper/
+/bin/
+.gradle/*
+.settings/
+/.classpath
+/.project
+/gradlew.bat
+/settings.gradle
+/build/
+/.metadata/
+/.recommenders/
+/out/
+/.idea/
+
