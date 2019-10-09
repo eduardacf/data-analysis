@@ -8,8 +8,6 @@ import com.dudacf26.core.DataAnalysis.domain.Seller;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,7 +24,6 @@ public class FileProcessor implements Processor {
 
     public static final int CODE_SIZE = 4;
     public static final int CODE_POSITION = 0;
-    private static final String SEPARADOR = "ç";
 
     @Autowired
     private Client client;
@@ -46,6 +43,7 @@ public class FileProcessor implements Processor {
         String line = null;
         BufferedReader reading = null;
 
+
         List<Seller> sellers = new ArrayList<>();
         List<Client> clients = new ArrayList<>();
         List<Sale> sales = new ArrayList<>();
@@ -55,6 +53,9 @@ public class FileProcessor implements Processor {
             reading = new BufferedReader(new InputStreamReader(is));
 
             while ((line = reading.readLine()) != null) {
+
+                String SEPARADOR = String.valueOf(line.charAt(3));
+
                 List<String> code = Arrays.asList(line.split(SEPARADOR));
                 checkCodeType(line, sellers, clients, sales, code);
             }
