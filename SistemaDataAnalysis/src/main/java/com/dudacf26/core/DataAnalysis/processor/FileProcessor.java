@@ -5,6 +5,8 @@ import com.dudacf26.core.DataAnalysis.domain.Client;
 import com.dudacf26.core.DataAnalysis.domain.AmountDice;
 import com.dudacf26.core.DataAnalysis.domain.Sale;
 import com.dudacf26.core.DataAnalysis.domain.Seller;
+import com.dudacf26.core.DataAnalysis.exception.FileError;
+import com.dudacf26.core.DataAnalysis.exception.LineError;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -64,6 +66,7 @@ public class FileProcessor implements Processor {
 
         } catch (IOException e) {
             log.error("Error: \n", e);
+            throw new FileError("\nFile Error\n");
         }
 
     }
@@ -80,6 +83,7 @@ public class FileProcessor implements Processor {
 
         } else {
             log.error("Error parsing line\n", linha);
+            throw new LineError("\nAn error occurred parsing a file line\n");
 
         }
     }

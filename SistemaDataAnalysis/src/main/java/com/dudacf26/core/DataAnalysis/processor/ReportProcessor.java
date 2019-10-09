@@ -3,6 +3,7 @@ package com.dudacf26.core.DataAnalysis.processor;
 import com.dudacf26.core.DataAnalysis.domain.AmountDice;
 import com.dudacf26.core.DataAnalysis.domain.Result;
 import com.dudacf26.core.DataAnalysis.domain.Sale;
+import com.dudacf26.core.DataAnalysis.exception.CreateError;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -33,6 +34,7 @@ public class ReportProcessor implements Processor {
             String message = "Error to create report - Report empty";
             log.error(message);
             exchange.getIn().setBody(message);
+            throw new CreateError("\nAn error occurred creating or reporting it is empty\n");
         }
     }
 
