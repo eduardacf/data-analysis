@@ -24,6 +24,8 @@ import java.util.List;
 @Slf4j
 public class FileProcessor implements Processor {
 
+    public static final int CodeSize = 4;
+    public static final int CodePosition = 0;
     private static final String SEPARADOR = "ç";
 
     @Autowired
@@ -66,14 +68,15 @@ public class FileProcessor implements Processor {
     }
 
     private void checkCodeType(String linha, List<Seller> sellers, List<Client> clients, List<Sale> sales, List<String> code) {
-        if (code != null && code.size() == 4 && StringUtils.isNotBlank(code.get(0))) {
-            if (code.get(0).equals(seller.TYPE)) {
+        if (code != null && code.size() == CodeSize && StringUtils.isNotBlank(code.get(CodePosition))) {
+            if (code.get(CodePosition).equals(seller.TYPE)) {
                 sellers.add(builderProcessor.sellerBuilder(code));
-            } else if (code.get(0).equals(client.TYPE)) {
+            } else if (code.get(CodePosition).equals(client.TYPE)) {
                 clients.add(builderProcessor.clientBuilder(code));
-            } else if (code.get(0).equals(sale.TYPE)) {
+            } else if (code.get(CodePosition).equals(sale.TYPE)) {
                 sales.add(builderProcessor.saleBuilder(code));
             }
+
         } else {
             log.error("Error parsing line\n", linha);
 
