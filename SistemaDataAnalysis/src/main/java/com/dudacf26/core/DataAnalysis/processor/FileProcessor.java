@@ -5,6 +5,7 @@ import com.dudacf26.core.DataAnalysis.domain.Client;
 import com.dudacf26.core.DataAnalysis.domain.AmountDice;
 import com.dudacf26.core.DataAnalysis.domain.Sale;
 import com.dudacf26.core.DataAnalysis.domain.Seller;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 public class FileProcessor implements Processor {
 
     private static final String SEPARADOR = "ç";
@@ -35,8 +37,6 @@ public class FileProcessor implements Processor {
 
     @Autowired
     private BuilderProcessor builderProcessor;
-
-    private static final Logger LOG = LoggerFactory.getLogger(FileProcessor.class);
 
     @Override
     public void process(Exchange exchange) {
@@ -60,7 +60,7 @@ public class FileProcessor implements Processor {
             buildQuantities(exchange, sellers, clients, sales);
 
         } catch (IOException e) {
-            LOG.error("Error: \n", e);
+            log.error("Error: \n", e);
         }
 
     }
@@ -75,7 +75,7 @@ public class FileProcessor implements Processor {
                 sales.add(builderProcessor.saleBuilder(code));
             }
         } else {
-            LOG.error("Error parsing line\n", linha);
+            log.error("Error parsing line\n", linha);
 
         }
     }

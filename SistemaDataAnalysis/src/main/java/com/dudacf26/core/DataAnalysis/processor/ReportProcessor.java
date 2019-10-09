@@ -3,16 +3,15 @@ package com.dudacf26.core.DataAnalysis.processor;
 import com.dudacf26.core.DataAnalysis.domain.AmountDice;
 import com.dudacf26.core.DataAnalysis.domain.Result;
 import com.dudacf26.core.DataAnalysis.domain.Sale;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Comparator;
-
+@Slf4j
 public class ReportProcessor implements Processor {
-
-    private static final Logger LOG = LoggerFactory.getLogger(ReportProcessor.class);
 
     @Override
     public void process(Exchange exchange) {
@@ -32,7 +31,7 @@ public class ReportProcessor implements Processor {
             exchange.getIn().setBody(report);
         } else {
             String message = "Error to create report - Report empty";
-            LOG.error(message);
+            log.error(message);
             exchange.getIn().setBody(message);
         }
     }
